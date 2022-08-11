@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :records
-  resources :artists
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :records
+      resources :artists
+    end
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "api/v1/artists#index"
 end
